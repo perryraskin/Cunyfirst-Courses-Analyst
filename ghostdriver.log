@@ -1,0 +1,39 @@
+[INFO  - 2017-08-29T21:52:18.346Z] GhostDriver - Main - running on port 60968
+[INFO  - 2017-08-29T21:52:19.329Z] Session [546302d0-8d04-11e7-bdbd-bd4cdeb22da6] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2017-08-29T21:52:19.329Z] Session [546302d0-8d04-11e7-bdbd-bd4cdeb22da6] - page.customHeaders:  - {}
+[INFO  - 2017-08-29T21:52:19.329Z] Session [546302d0-8d04-11e7-bdbd-bd4cdeb22da6] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2017-08-29T21:52:19.329Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 546302d0-8d04-11e7-bdbd-bd4cdeb22da6
+[ERROR - 2017-08-29T21:52:24.084Z] Session [546302d0-8d04-11e7-bdbd-bd4cdeb22da6] - page.onError - msg: TypeError: null is not an object (evaluating 'document.getElementById(id + "overwrite").innerHTML')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-29T21:52:24.084Z] Session [546302d0-8d04-11e7-bdbd-bd4cdeb22da6] - page.onError - stack:
+  ResourceRotate (https://www.cuny.edu/resources/javascript/student-resources-rotation.js:20)
+  (anonymous function) (https://www.cuny.edu/resources/javascript/student-resources-rotation.js:106)
+  n (https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js:2)
+  fireWith (https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js:2)
+  ready (https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js:2)
+  B (https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-29T21:52:24.567Z] Session [546302d0-8d04-11e7-bdbd-bd4cdeb22da6] - page.onError - msg: TypeError: undefined is not an object (evaluating 'document.loginform.login.value')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-29T21:52:24.567Z] Session [546302d0-8d04-11e7-bdbd-bd4cdeb22da6] - page.onError - stack:
+  signon_validate (https://ssologin.cuny.edu/cuny.html?resource_url=https%3A%2F%2Fhome.cunyfirst.cuny.edu%252Fpsp%252Fcnyepprd%252FEMPLOYEE%252FEMPL%252Fh%252F%3Ftab%253DDEFAULT:49)
+  onclick (https://ssologin.cuny.edu/cuny.html?resource_url=https%3A%2F%2Fhome.cunyfirst.cuny.edu%252Fpsp%252Fcnyepprd%252FEMPLOYEE%252FEMPL%252Fh%252F%3Ftab%253DDEFAULT:133)
+  dispatchEvent (:0)
+  U (:119)
+  $ (:108)
+  $ (:101)
+  gh (:141)
+  sh (:152)
+  (anonymous function) (:152)
+  (anonymous function) (:152)
+  (anonymous function) (:153)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-29T21:52:24.973Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1504043544942
+
+  phantomjs://platform/console++.js:263 in error
+[INFO  - 2017-08-29T21:57:18.335Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-08-29T22:02:18.323Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW

@@ -1,6 +1,18 @@
 import urllib
 import http.cookiejar
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select,WebDriverWait
+import requests
+from selenium.common.exceptions import TimeoutException    
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+import datetime
+from lxml import html
+from lxml import etree
 
 class classes(object):
     def __inti__(self,title,time,room,professor,clsCode,clsCdt):
@@ -26,15 +38,55 @@ class loadData(object):
         self.optPW = optPW
         
     def load(self):
+        '''
         #cunyfirst login 
         loginId = self.id
         password = self.pw
-        logUrl="https://home.cunyfirst.cuny.edu/access/dummy.cgi?login=%s&password=%s&submit.x=0&submit.y=0"%(loginId,password)  
+        #logUrl="https://home.cunyfirst.cuny.edu/access/dummy.cgi?login=%s&password=%s&submit.x=0&submit.y=0"%(loginId,password)  
+        logUrl="https://ssologin.cuny.edu/oam/server/auth_cred_submit?username=%s&password=%s&submit.x=0&submit.y=0"%(loginId,password)
         r=openner.open(logUrl)
         if 'Student Center' not in str(r.read()): #check if login succeed
             return False
         else:return True
+        '''
+        #login cunyfirst
+        global browser
         
+        DesiredCapabilities.PHANTOMJS["elementScrollBehavior"] = 1
+        #browser field
+        browser = webdriver.PhantomJS()
+        #browser = webdriver.Opera()
+        #browser = webdriver.Chrome()
+        wait = WebDriverWait(browser, 10)
+        
+        loginId = self.id
+        password = self.pw
+        browser.get('https://ssologin.cuny.edu/cuny.html?resource_url=https%3A%2F%2Fhome.cunyfirst.cuny.edu%252Fpsp%252Fcnyepprd%252FEMPLOYEE%252FEMPL%252Fh%252F%3Ftab%253DDEFAULT')
+        browser.maximize_window()
+        form = browser.find_element_by_name('loginform')
+        browser.find_element_by_id('cf-login').send_keys(loginId)
+        browser.find_element_by_id('password').send_keys(password)
+        browser.find_element_by_name('submit').click()
+        #browser.find_element_by_id('password').send_keys(Keys.RETURN)
+        #pwd = browser.find_element_by_id('password')
+        #submit = browser.find_element_by_name('submit')
+        #browser.execute_script("arguments[0];", submit)
+        #print (submit.get_attribute("outerHTML"))
+        #print (browser.execute_script("arguments[0];", submit))
+        #ActionChains(browser).move_to_element(pwd).click(submit).perform()
+        try:
+            #wait.until(EC.presence_of_element_located((By.ID, "crefli_HC_SSS_STUDENT_CENTER")))
+            #browser.find_element_by_xpath("//input[contains(@name,'submit')AND contains(@alt,'Submit')]").click()
+            if browser.find_element_by_id('crefli_HC_SSS_STUDENT_CENTER'):
+                #return login status
+                return True
+            else:
+                return False
+        except:
+            print('element not found on page')
+            print(browser.current_url)
+            browser.save_screenshot('/Users/perryraskin/Desktop/screen.png')
+
     def optLoad(self):
         #cuny portal login, used only if cunyfirst is maintaining
         loginId = self.optID

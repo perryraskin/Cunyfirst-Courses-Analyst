@@ -16,13 +16,13 @@ class ClsSearch(object):
         global browser
         
         #browser field
-        browser = webdriver.PhantomJS()
+        #browser = webdriver.PhantomJS()
         #browser = webdriver.Firefox()
-        #browser = webdriver.Chrome()
+        browser = webdriver.Chrome()
         
         loginId = self.id
         password = self.pw
-        browser.get('https://home.cunyfirst.cuny.edu/oam/Portal_Login1.html')
+        browser.get('https://ssologin.cuny.edu/cuny.html?resource_url=https%3A%2F%2Fhome.cunyfirst.cuny.edu%252Fpsp%252Fcnyepprd%252FEMPLOYEE%252FEMPL%252Fh%252F%3Ftab%253DDEFAULT')
         browser.find_element_by_id('cf-login').send_keys(loginId)
         browser.find_element_by_id('password').send_keys(password)
         browser.find_element_by_name('submit').click()
